@@ -18,4 +18,5 @@ const findSub = (arr) => {
 
 
 console.log(findSub([0,3,7,2,5,8,4,6,0,1]));
+console.log(findSub([1, 2, 5, 6, 7]));
 console.log(findSub([]));
