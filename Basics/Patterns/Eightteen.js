@@ -11,12 +11,12 @@ A B C D E       0 1 2 3 4
 
 const n = 5;
 
-for (let i = 1; i <= n; i++) {
+for (let i = n - 1; i >= 0; i--) {
 	let str = "";
 
-	for (let j = n-i; j > n; j--) {
-		// str += String.fromCharCode(j + 65);
-        console.log(j)
+	for (let j = i; j < n; j++) {
+		str += String.fromCharCode(j + 65);
+		str += " ";
 	}
 
 	console.log(str);
