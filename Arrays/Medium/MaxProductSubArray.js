@@ -19,8 +19,4 @@ const findMaxProduct = (nums) => {
 	return maxProduct;
 };
 
-console.log(findMaxProduct([5, 2, 3, -2, 4, 5]));
-console.log(findMaxProduct([4, -1, -2, -3, -4]));
-console.log(findMaxProduct([-2, 0, -1]));
-console.log(findMaxProduct([0, 2]));
-console.log(findMaxProduct([3, -1, 4]));
+console.log(findMaxProduct([1,2,-3,0,-4,-5]));
