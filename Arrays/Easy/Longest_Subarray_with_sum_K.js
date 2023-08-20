@@ -7,10 +7,10 @@ const findLongest = (nums, k) => {
 
 	while (i < nums.length) {
 		sum += nums[j];
-		if (sum == k) {
+		if (sum === k) {
 			max = Math.max(max, j - i + 1);
 		}
-		if (j == nums.length - 1) {
+		if (j === nums.length - 1) {
 			break;
 		}
 		if (sum > k) {
