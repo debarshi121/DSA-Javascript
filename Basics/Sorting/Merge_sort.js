@@ -1,28 +1,36 @@
 const merge = (arr, start, mid, end) => {
 	const temp = [];
-	while (start <= mid && mid + 1 <= end) {
-		if (arr[start] <= arr[mid + 1]) {
-			temp.push(arr[start]);
-			start++;
+	let arr1 = arr.slice(start, mid + 1);
+	let arr2 = arr.slice(mid + 1, end + 1);
+
+	let i = 0;
+	let j = 0;
+
+	while (i < arr1.length && j < arr2.length) {
+		if (arr1[i] <= arr2[j]) {
+			temp.push(arr1[i]);
+			i++;
 		} else {
-			temp.push(arr[mid + 1]);
-			mid++;
+			temp.push(arr2[j]);
+			j++;
 		}
 	}
 
-	while (start <= mid) {
-		temp.push(arr[start]);
-		start++;
+	while (i < arr1.length) {
+		temp.push(arr1[i]);
+		i++;
 	}
 
-	while (mid + 1 <= end) {
-		temp.push(arr[mid + 1]);
-		mid++;
+	while (j < arr2.length) {
+		temp.push(arr1[j]);
+		j++;
 	}
 
-	for (let i = start; i <= end; i++) {
-		arr[i] = temp[i];
+	for (let k = start; k <= end; k++) {
+		arr[k] = temp[k - start];
 	}
+
+	return arr;
 };
 
 const mergeSort = (arr, start, end) => {
@@ -32,14 +40,10 @@ const mergeSort = (arr, start, end) => {
 	const mid = Math.floor((start + end) / 2);
 	mergeSort(arr, start, mid);
 	mergeSort(arr, mid + 1, end);
-	merge(arr, start, mid, end);
+	return merge(arr, start, mid, end);
 };
 
 const arr = [5, 2, 3, 1];
 const start = 0;
 const end = arr.length - 1;
-mergeSort(arr, start, end)
-
-for(let i=0; i<arr.length; i++){
-    console.log(arr[i]);
-}
+console.log(mergeSort(arr, start, end));
